@@ -1,4 +1,5 @@
-<?php // callback.php
+<?php 
+
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = 'n3Ip66xMPuO1xND8801hh9NZhuyHgsSuFvCETfyga18qvVuO095cmHbr9mV+M4kejFHkGb88rpwscKSr0co8BpWr8zN09hfRNUvhH6Mp/NOp6dMl/ULggahkDbLHk2nq/CtV0+85qZGZinIv50f6sQdB04t89/1O/w1cDnyilFU=';
@@ -30,12 +31,31 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
 }else{
-  $r='';
+ $host="db4free.net";
+$user="poomzatan123456";
+$password="0811582889zX";
+
+$connect=mysqli_connect($host,$user,$password,"testdb1234567");
+
+mysqli_set_charset($connect,"UTF8");
+
+if($connect)
+{
+   $r='';
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
-  $arrPostData['messages'][0]['text']= $arrJson['events'][0]['source']['userId'];
+  $arrPostData['messages'][0]['text'] = "1";
+  $r = $arrJson['events'][0]['source']['userId'];
+ $sqltext	"INSERT INTO `Line` (`pk_l`, `iduserLine`) VALUES (NULL, '$r')";
+  echo $sqltext;
+	$qury = mysqli_query($connect,$sqltext);
+	if($qury){
+
+	}
+}else{
+}
+
   
 }
  
