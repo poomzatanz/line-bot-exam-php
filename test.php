@@ -13,7 +13,7 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $arrPostData = array();
 $arrPostData['to'] = "U9fab035a6b8d51bd7c3104855fd54fc9";
 $arrPostData['messages'][0]['type'] = "text";
-$arrPostData['messages'][0]['text'] = "นี้คือการทดสอบ Push Message";
+$arrPostData['messages'][0]['text'] = "test";
  
  
 $ch = curl_init();
