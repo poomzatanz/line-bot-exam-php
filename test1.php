@@ -1,4 +1,6 @@
 <?php
-$s=$_POST['last'];
 
-echo $s;
+if(isset($_POST['Submit'])){
+  echo 's';
+}
+
