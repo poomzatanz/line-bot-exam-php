@@ -31,30 +31,10 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
 }else{
- $host="db4free.net";
-$user="poomzatan123456";
-$password="0811582889zX";
-
-$connect=mysqli_connect($host,$user,$password,"testdb1234567");
-
-mysqli_set_charset($connect,"UTF8");
-
-if($connect)
-{
-   $r='';
-  $arrPostData = array();
+ $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "1";
-  $r = $arrJson['events'][0]['source']['userId'];
- $sqltext	"INSERT INTO `Line` (`pk_l`, `iduserLine`) VALUES (NULL, '$r')";
-  echo $sqltext;
-	$qury = mysqli_query($connect,$sqltext);
-	if($qury){
-
-	}
-}else{
-}
+  $arrPostData['messages'][0]['text'] = "sss";
 
   
 }
