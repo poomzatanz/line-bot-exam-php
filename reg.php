@@ -1,3 +1,4 @@
+<?php
 <html><head>
   <title>สมัครสมาชิก</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -42,3 +43,4 @@ action="savebook.php">
 </div>
 </body>
 </html>
+?>
