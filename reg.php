@@ -5,7 +5,7 @@
   </head>
 <body >
 <form enctype="multipart/form-data" name="save" method="post"
-action="savebook.php">
+action="test.php">
 <BR><BR>
 <table width="650" border="1" bgcolor="#FFFFFF" align = "center">
 <tr>
@@ -14,26 +14,26 @@ action="savebook.php">
 </tr>
 <tr>
 <td width = "200">ชื่อ : </td><td width = "400">
-<input type="text" name="BookID" size="50" maxlength="5"> </td>
+<input type="text" name="name" size="50" maxlength="5"> </td>
 </tr>
 <tr >
 <td width = "200" >นามสกุล :</td><td >
-<input type="text" name="BookName" size="50" maxlength="50"> </td>
+<input type="text" name="last" size="50" maxlength="50"> </td>
 </tr>
 </tr>
 <tr >
 <td width = "200" >Email :</td><td >
-<input type="text" name="BookName" size="50" maxlength="50"> </td>
+<input type="text" name="mail" size="50" maxlength="50"> </td>
 </tr>
 </tr>
 <tr >
 <td width = "200" >ที่อยู่ :</td><td >
-<textarea id="adress" name="adress" placeholder="Your address..." style="width:300px; height:150px;"></textarea> </td>
+<textarea id="adress" name="add" placeholder="Your address..." style="width:300px; height:150px;"></textarea> </td>
 </tr>
 </tr>
 <tr >
 <td width = "200" >เบอร์โทร :</td><td >
-<input type="text" name="BookName" size="50" maxlength="50"> </td>
+<input type="text" name="tel" size="50" maxlength="50"> </td>
 </tr>
 </table>
 <BR>
