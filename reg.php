@@ -5,7 +5,7 @@
   </head>
 <body >
 <form enctype="multipart/form-data" name="save" method="post"
-action="test.php">
+action="test1.php">
 <BR><BR>
 <table width="650" border="1" bgcolor="#FFFFFF" align = "center">
 <tr>
