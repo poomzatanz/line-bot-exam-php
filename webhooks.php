@@ -35,8 +35,8 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
-  $r=$arrJson['events'][0]['source']['userId'];
-  echo $r ;
+  $arrPostData['messages'][0]['text']= $arrJson['events'][0]['source']['userId'];
+  
 }
  
 
