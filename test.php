@@ -20,17 +20,17 @@ if($connect)
 	$t=$_POST['tel'];
 	$pass = md5($p);
         
-		
- 
+	$arrHeader = array();
+$arrHeader[] = "Content-Type: application/json";
+$arrHeader[] = "Authorization: Bearer {$strAccessToken}";	
+ $arrPostData = array();
 
    $sqltext1 = "SELECT DISTINCT iduserLine FROM Line";
 		$qury1 = mysqli_query($connect,$sqltext1);
 		while ($row=mysqli_fetch_array($qury1)){ 
-			$arrHeader = array();
-$arrHeader[] = "Content-Type: application/json";
-$arrHeader[] = "Authorization: Bearer {$strAccessToken}";
-			echo $row['iduserLine'];
-		$arrPostData = array();
+			echo '88';
+	        echo $row['iduserLine'];
+		
 $arrPostData['to'] = $row['iduserLine'];
 $arrPostData['messages'][0]['type'] = "text";
 $arrPostData['messages'][0]['text'] = "คุณได้สมัครสมาชิกแล้ว	ชื่อของคุณคือ 	".$n." นามสกุล ".$l."	อีเมลล์คือ	".$m."	ที่อยู่	".$a."	เบอร์โทรที่ติดต่อได้	".$t;	
