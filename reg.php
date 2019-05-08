@@ -5,7 +5,7 @@
   </head>
 <body >
 <form enctype="multipart/form-data" name="save" method="post"
-action="test1.php">
+action="test.php">
 <BR><BR>
 <table width="650" border="1" bgcolor="#FFFFFF" align = "center">
 <tr>
@@ -24,6 +24,9 @@ action="test1.php">
 <tr >
 <td width = "200" >Email :</td><td >
 <input type="text" name="mail" size="50" maxlength="50"> </td>
+</tr>
+  <td width = "200" >Password :</td><td >
+<input type="text" name="pass" size="50" maxlength="50"> </td>
 </tr>
 </tr>
 <tr >
