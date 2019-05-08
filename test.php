@@ -1,7 +1,16 @@
 <?php
 
-function hello($name) {
+function hello($name,$n,$l,$m,$a,$t) {
     echo "Hello $name.\n";
+	$strAccessToken = "QbPV0K1fLygsgn1qPdqb93NdTIqcMUOr4G4ArHZKbwqVqGRSrRzJrmVD9OuIBVzUoo1Zckc2sfsXkwgnxn92+0ZkaCCHq/KHD7QANBAogMPDp5ID+ea2juiV8+VAa8Pjsul37/1/RQlhV7z1ES5oYAdB04t89/1O/w1cDnyilFU=";
+		$arrHeader = array();
+$arrHeader[] = "Content-Type: application/json";
+$arrHeader[] = "Authorization: Bearer {$strAccessToken}";
+	 $arrPostData = array();
+	$arrPostData['to'] = $row['iduserLine'];
+$arrPostData['messages'][0]['type'] = "text";
+$arrPostData['messages'][0]['text'] = "คุณได้สมัครสมาชิกแล้ว	ชื่อของคุณคือ 	".$n." นามสกุล ".$l."	อีเมลล์คือ	".$m."	ที่อยู่	".$a."	เบอร์โทรที่ติดต่อได้	".$t;
+
 }
 
 require "vendor/autoload.php";
@@ -23,22 +32,13 @@ if($connect)
 	$m=$_POST['mail'];
 	$a=$_POST['add'];
 	$t=$_POST['tel'];
-	$pass = md5($p);
-        
-	$arrHeader = array();
-$arrHeader[] = "Content-Type: application/json";
-$arrHeader[] = "Authorization: Bearer {$strAccessToken}";	
- $arrPostData = array();
+	$pass = md5($p);	
 
    $sqltext1 = "SELECT DISTINCT iduserLine FROM Line";
 		$qury1 = mysqli_query($connect,$sqltext1);
 		while ($row=mysqli_fetch_array($qury1)){ 
-		  hello($row['iduserLine']);
+		  hello($row['iduserLine'],$n,$l,$m,$a,$t);
 	        echo $row['iduserLine'];
-		
-$arrPostData['to'] = $row['iduserLine'];
-$arrPostData['messages'][0]['type'] = "text";
-$arrPostData['messages'][0]['text'] = "คุณได้สมัครสมาชิกแล้ว	ชื่อของคุณคือ 	".$n." นามสกุล ".$l."	อีเมลล์คือ	".$m."	ที่อยู่	".$a."	เบอร์โทรที่ติดต่อได้	".$t;	
 		}
 		
 
