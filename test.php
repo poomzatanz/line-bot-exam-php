@@ -27,7 +27,7 @@ if($connect)
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 	 $arrPostData = array();
-	$arrPostData['to'] = $row['iduserLine'];
+	$arrPostData['to'] = 'U9fab035a6b8d51bd7c3104855fd54fc9';
 $arrPostData['messages'][0]['type'] = "text";
 $arrPostData['messages'][0]['text'] = "คุณได้สมัครสมาชิกแล้ว	ชื่อของคุณคือ 	".$n." นามสกุล ".$l."	อีเมลล์คือ	".$m."	ที่อยู่	".$a."	เบอร์โทรที่ติดต่อได้	".$t;
 		}
