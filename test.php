@@ -7,7 +7,7 @@ function hello($name,$n,$l,$m,$a,$t) {
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 	 $arrPostData = array();
-	$arrPostData['to'] = $row['iduserLine'];
+	$arrPostData['to'] = $name;
 $arrPostData['messages'][0]['type'] = "text";
 $arrPostData['messages'][0]['text'] = "คุณได้สมัครสมาชิกแล้ว	ชื่อของคุณคือ 	".$n." นามสกุล ".$l."	อีเมลล์คือ	".$m."	ที่อยู่	".$a."	เบอร์โทรที่ติดต่อได้	".$t;
 
