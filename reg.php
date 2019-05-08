@@ -26,7 +26,7 @@ action="test.php">
 <input type="text" name="mail" size="50" maxlength="50"> </td>
 </tr>
   <td width = "200" >Password :</td><td >
-<input type="text" name="pass" size="50" maxlength="50"> </td>
+<input type="password" name="pass" size="50" maxlength="50"> </td>
 </tr>
 </tr>
 <tr >
