@@ -4,7 +4,7 @@ function hello($name,$n,$l,$m,$a,$t) {
 	
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
-    echo "Hello $name.\n";
+    echo "Hello1 $name.\n";
 	$strAccessToken = "QbPV0K1fLygsgn1qPdqb93NdTIqcMUOr4G4ArHZKbwqVqGRSrRzJrmVD9OuIBVzUoo1Zckc2sfsXkwgnxn92+0ZkaCCHq/KHD7QANBAogMPDp5ID+ea2juiV8+VAa8Pjsul37/1/RQlhV7z1ES5oYAdB04t89/1O/w1cDnyilFU=";
 		$arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
