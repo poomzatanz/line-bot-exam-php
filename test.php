@@ -38,7 +38,6 @@ if($connect)
 		$qury1 = mysqli_query($connect,$sqltext1);
 		while ($row=mysqli_fetch_array($qury1)){ 
 		  hello($row['iduserLine'],$n,$l,$m,$a,$t);
-	        echo $row['iduserLine'];
 		}
 		
 
