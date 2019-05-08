@@ -23,7 +23,7 @@ if($connect)
         $sqltext1 = "SELECT * FROM Line ORDER BY `pk_l` DESC LIMIT 1";
 		$qury1 = mysqli_query($connect,$sqltext1);
 		$result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
-		echo $result['iduserLine'];
+		
  
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
@@ -37,7 +37,7 @@ $sqltext = "INSERT INTO `regis` (`pk_re`, `name`, `lastname`, `add`, `email`, `p
   echo $sqltext;
 	$qury = mysqli_query($connect,$sqltext);
 	if($qury){
-
+               echo $result['iduserLine'];
 	}	
 }
 else{
