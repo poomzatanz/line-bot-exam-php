@@ -41,10 +41,7 @@ $sqltext = "INSERT INTO `regis` (`pk_re`, `name`, `lastname`, `add`, `email`, `p
   echo $sqltext;
 	$qury = mysqli_query($connect,$sqltext);
 	if($qury){
-               echo"            <script>
-				window.location='reg.php';
-				</script>
-				";
+               
 	}	
 }
 else{
