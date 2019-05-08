@@ -32,7 +32,7 @@ $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $arrPostData = array();
 $arrPostData['to'] = $result['iduserLine'];
 $arrPostData['messages'][0]['type'] = "text";
-$arrPostData['messages'][0]['text'] = "คุณได้สมัครสมาชิกแล้ว	ชื่อของคุณคือ 	".$n." นามสกุล ".$l."	อีเมลล์คือ	".$m."	ที่อยู่		".$a."	เบอร์โทรที่ติดต่อได้ 	".$t;
+$arrPostData['messages'][0]['text'] = "คุณได้สมัครสมาชิกแล้ว	ชื่อของคุณคือ 	".$n." นามสกุล ".$l."	อีเมลล์คือ	".$m."	ที่อยู่	".$a."	เบอร์โทรที่ติดต่อได้	".$t;
 $sqltext = "INSERT INTO `regis` (`pk_re`, `name`, `lastname`, `add`, `email`, `password`, `tel`) VALUES (NULL, '$n', '$l', '$a', '$m', '$pass', '$t');";
   echo $sqltext;
 	$qury = mysqli_query($connect,$sqltext);
