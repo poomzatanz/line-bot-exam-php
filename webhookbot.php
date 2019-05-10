@@ -23,7 +23,7 @@
       
         $push[0]='สวัสดีครับ  '.$result['name'];
         $push[1]='User ID ของคุณคือ ';
-        $push[2]=$id;
+        $push[2]="$id";
       
        for($i=0;$i<=2;$i++){
           $arrayPostData['to'] = $id;
