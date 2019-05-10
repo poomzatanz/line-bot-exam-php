@@ -20,17 +20,16 @@ $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 if($arrJson['events'][0]['message']['text'] == "name"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-
-
+ 
   $push[0]='สวัสดีครับ คุณ ';
   $push[1]='User ID ของคุณคือ';
   $push[2]=$arrJson['events'][0]['source']['userId'];
 	
   for($i=0;$i<=2;$i++){	
-	$arrPostData['messages'][0]['type'] = "text";
-	$arrPostData['messages'][0]['text'] = $push[$i];  
+	  $arrayPostData['to'] = $arrJson['events'][0]['source']['userId'];
+          $arrayPostData['messages'][0]['type'] = "text";
+          $arrayPostData['messages'][0]['text'] = $push[$i];
+          pushMsg($arrayHeader,$arrayPostData);  
   }
   
 }else{
@@ -55,3 +54,16 @@ curl_close ($ch);
 }else{
 	
 }
+ function pushMsg($arrayHeader,$arrayPostData){
+      $strUrl = "https://api.line.me/v2/bot/message/push";
+      $ch = curl_init();
+      curl_setopt($ch, CURLOPT_URL,$strUrl);
+      curl_setopt($ch, CURLOPT_HEADER, false);
+      curl_setopt($ch, CURLOPT_POST, true);
+      curl_setopt($ch, CURLOPT_HTTPHEADER, $arrayHeader);
+      curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrayPostData));
+      curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+      $result = curl_exec($ch);
+      curl_close ($ch);
+   }
