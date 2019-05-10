@@ -10,16 +10,31 @@
    //รับ id ของผู้ใช้
    $id = $arrayJson['events'][0]['source']['userId'];
    if($message == "name"){
+      $host="db4free.net";
+      $user="poomzatan123456";
+      $password="0811582889zX";
+      $connect=mysqli_connect($host,$user,$password,"testdb1234567");
+      mysqli_set_charset($connect,"UTF8");
+      if($connect)
+      {
+         $sql="SELECT * FROM `Line` INNER join regis on Line.pk_re = regis.pk_re WHERE `iduserLine`='".$id."'";
+         $qury = mysqli_query($connect,$sql);
+		   $result=mysqli_fetch_array($qury,MYSQLI_ASSOC);
+      
         $push[0]='สวัสดีครับ  ';
-      $push[1]='User ID ของคุณคือ ';
-      $push[2]=$id;
+        $push[1]='User ID ของคุณคือ ';
+        $push[2]=$id;
+      
        for($i=0;$i<=2;$i++){
           $arrayPostData['to'] = $id;
           $arrayPostData['messages'][0]['type'] = "text";
           $arrayPostData['messages'][0]['text'] = $push[$i];
           pushMsg($arrayHeader,$arrayPostData);
        }
-       
+         
+      }else{
+         
+      }    
     }
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
