@@ -10,9 +10,6 @@
    //รับ id ของผู้ใช้
    $id = $arrayJson['events'][0]['source']['userId'];
    if($message == "name"){
-      $push[0]='สวัสดีครับ  ';
-      $push[1]='User ID ของคุณคือ '.;
-      $push[2]=$id;
        for($i=0;$i<=2;$i++){
           $arrayPostData['to'] = $id;
           $arrayPostData['messages'][0]['type'] = "text";
