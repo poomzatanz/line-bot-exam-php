@@ -9,11 +9,14 @@
    $message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
    $id = $arrayJson['events'][0]['source']['userId'];
-   if($message == "นับ 1-10"){
-       for($i=1;$i<=10;$i++){
+   if($message == "name"){
+      $push[0]='สวัสดีครับ  ';
+      $push[1]='User ID ของคุณคือ '.;
+      $push[2]=$id;
+       for($i=0;$i<=2;$i++){
           $arrayPostData['to'] = $id;
           $arrayPostData['messages'][0]['type'] = "text";
-          $arrayPostData['messages'][0]['text'] = $i;
+          $arrayPostData['messages'][0]['text'] = $push[$i];
           pushMsg($arrayHeader,$arrayPostData);
        }
     }
