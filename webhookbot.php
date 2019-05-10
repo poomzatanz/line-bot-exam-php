@@ -10,12 +10,7 @@
    //รับ id ของผู้ใช้
    $id = $arrayJson['events'][0]['source']['userId'];
    if($message == "name"){
-       for($i=0;$i<=2;$i++){
-          $arrayPostData['to'] = $id;
-          $arrayPostData['messages'][0]['type'] = "text";
-          $arrayPostData['messages'][0]['text'] = $i;
-          pushMsg($arrayHeader,$arrayPostData);
-       }
+       
     }
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
