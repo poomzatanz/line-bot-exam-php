@@ -23,7 +23,15 @@ if($arrJson['events'][0]['message']['text'] == "name"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
+
+  $push[0]='สวัสดีครับ คุณ ';
+  $push[1]='User ID ของคุณคือ';
+  $push[2]=$arrJson['events'][0]['source']['userId'];
+	
+  for($i=0;$i<=2;$i++){	
+	$arrPostData['messages'][0]['text'] = $push[$i];  
+  }
+  
 }else{
  $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
