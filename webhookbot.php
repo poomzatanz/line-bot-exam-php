@@ -1,4 +1,11 @@
 <?php
+$host="db4free.net";
+$user="poomzatan123456";
+$password="0811582889zX";
+$connect=mysqli_connect($host,$user,$password,"testdb1234567");
+mysqli_set_charset($connect,"UTF8");
+if($connect)
+{
    $accessToken = "QbPV0K1fLygsgn1qPdqb93NdTIqcMUOr4G4ArHZKbwqVqGRSrRzJrmVD9OuIBVzUoo1Zckc2sfsXkwgnxn92+0ZkaCCHq/KHD7QANBAogMPDp5ID+ea2juiV8+VAa8Pjsul37/1/RQlhV7z1ES5oYAdB04t89/1O/w1cDnyilFU=";
 
    $content = file_get_contents('php://input');
@@ -13,8 +20,11 @@
 
    if($message == "name"){
        
-       $push[0]='สวัสดีครับ คุณ ';
-      $push[1]='User ID ของคุณคือ ';
+      $sql="SELECT * FROM `Line` INNER join regis on Line.pk_re = regis.pk_re WHERE `iduserLine`='".$id."'";
+      $qury = mysqli_query($connect,$sql);
+		$result=mysqli_fetch_array($qury,MYSQLI_ASSOC);
+      $push[0]='สวัสดีครับ  '.$result['name'];
+      $push[1]='User ID ของคุณคือ '.;
       $push[2]=$id;
        for($i=0;$i<=2;$i++){
           $arrayPostData['to'] = $id;
@@ -41,5 +51,8 @@
       $result = curl_exec($ch);
       curl_close ($ch);
    }
+}else{
+   
+}
    exit;
 
