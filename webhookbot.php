@@ -16,7 +16,7 @@
           for($i=1;$i<=2;$i++){
           $arrayPostData['to'] = $id;
           $arrayPostData['messages'][0]['type'] = "text";
-          $arrayPostData['messages'][0]['text'] = $push[$i];
+   
           pushMsg($arrayHeader,$arrayPostData);
        }
  
