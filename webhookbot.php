@@ -36,7 +36,7 @@
     }else{
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "ขอโทษครับ ผมยังไม่ได้เรียนคำนี้";
+      $arrayPostData['messages'][0]['text'] = "ขอโทษครับ ผมยังไม่ได้เรียนคำนี้ .....";
       pushMsg($arrayHeader,$arrayPostData);
    }    
    function pushMsg($arrayHeader,$arrayPostData){
