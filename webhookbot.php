@@ -57,20 +57,20 @@
 		      $qury1 = mysqli_query($connect,$sqltext1);
             $result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
             
-            if($message=="y"){
-               $arrayPostData['to'] = $id;
-               $arrayPostData['messages'][0]['type'] = "text";
-               $arrayPostData['messages'][0]['text'] = "ขอบคุณครับ กรุณาพิมพ์คำ ที่ต้องการสอนได้เลยครับ";
-               pushMsg($arrayHeader,$arrayPostData);
-            }else if($message=="n"){
-               $arrayPostData['to'] = $id;
-               $arrayPostData['messages'][0]['type'] = "text";
-               $arrayPostData['messages'][0]['text'] = "ไม่เป็นไรครับไว้โอกาสหน้านะครับ";
-               pushMsg($arrayHeader,$arrayPostData);
-            }
+   
          }
       }
      
+   }else if($message=="y"){
+      $arrayPostData['to'] = $id;
+      $arrayPostData['messages'][0]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "ขอบคุณครับ กรุณาพิมพ์คำ ที่ต้องการสอนได้เลยครับ";
+      pushMsg($arrayHeader,$arrayPostData);
+   }else if($message=="n"){
+      $arrayPostData['to'] = $id;
+      $arrayPostData['messages'][0]['type'] = "text";
+      $arrayPostData['messages'][0]['text'] = "ไม่เป็นไรครับไว้โอกาสหน้านะครับ";
+      pushMsg($arrayHeader,$arrayPostData);
    }    
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
