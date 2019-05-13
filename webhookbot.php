@@ -48,7 +48,10 @@
          $sql="INSERT INTO `Learn` (`id_learn`, `input`, `out`) VALUES (NULL, '$message', '');";
          $qury = mysqli_query($connect,$sql);
          if($qury){
-            
+            $arrayPostData['to'] = $id;
+            $arrayPostData['messages'][0]['type'] = "text";
+            $arrayPostData['messages'][0]['text'] = "กรุณาสอนด้วยครับ.";
+            pushMsg($arrayHeader,$arrayPostData);
          }
       }
      
