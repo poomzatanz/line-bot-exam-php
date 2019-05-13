@@ -67,11 +67,6 @@
                $arrayPostData['messages'][0]['type'] = "text";
                $arrayPostData['messages'][0]['text'] = "ไม่เป็นไรครับไว้โอกาสหน้านะครับ";
                pushMsg($arrayHeader,$arrayPostData);
-            }else{
-               $arrayPostData['to'] = $id;
-               $arrayPostData['messages'][0]['type'] = "text";
-               $arrayPostData['messages'][0]['text'] = "ไม่เข้าใจครับ";
-               pushMsg($arrayHeader,$arrayPostData);
             }
          }
       }
