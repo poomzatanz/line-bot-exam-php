@@ -74,7 +74,7 @@
       }
      
    }else if($message=="y"){
-      $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
+      $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "ขอบคุณครับ กรุณาพิมพ์คำ ที่ต้องการสอนได้เลยครับ";
       pushMsg($arrayHeader,$arrayPostData);
