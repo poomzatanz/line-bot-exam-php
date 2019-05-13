@@ -37,6 +37,20 @@
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "ขอโทษครับ ผมยังไม่ได้เรียนคำนี้ .........";
+
+      $host="db4free.net";
+      $user="poomzatan123456";
+      $password="0811582889zX";
+      $connect=mysqli_connect($host,$user,$password,"testdb1234567");
+      mysqli_set_charset($connect,"UTF8");
+      if($connect)
+      {
+         $sql="INSERT INTO `Learn` (`id_learn`, `input`, `out`) VALUES (NULL, '$message', '');";
+         $qury = mysqli_query($connect,$sql);
+         if($qury){
+            echo "Susess";
+         }
+      }
       pushMsg($arrayHeader,$arrayPostData);
    }    
    function pushMsg($arrayHeader,$arrayPostData){
