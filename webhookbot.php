@@ -33,7 +33,7 @@
        }
          
       }
-    }else{
+    }else if($message!="y"&&$message!="n"){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "ขอโทษครับ ผมยังไม่ได้เรียนคำนี้ .........";
