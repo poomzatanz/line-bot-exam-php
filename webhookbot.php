@@ -37,7 +37,7 @@
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "ขอโทษครับ ผมยังไม่ได้เรียนคำนี้ .........";
-
+      pushMsg($arrayHeader,$arrayPostData);
       $host="db4free.net";
       $user="poomzatan123456";
       $password="0811582889zX";
@@ -48,13 +48,10 @@
          $sql="INSERT INTO `Learn` (`id_learn`, `input`, `out`) VALUES (NULL, '$message', '');";
          $qury = mysqli_query($connect,$sql);
          if($qury){
-             $arrayPostData['to'] = $id;
-             $arrayPostData['messages'][0]['type'] = "text";
-             $arrayPostData['messages'][0]['text'] = "กรุณาสอนด้วยครับ.";
-             pushMsg($arrayHeader,$arrayPostData);
+            
          }
       }
-      pushMsg($arrayHeader,$arrayPostData);
+     
    }    
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
