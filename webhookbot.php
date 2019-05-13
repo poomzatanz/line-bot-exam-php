@@ -50,8 +50,29 @@
          if($qury){
             $arrayPostData['to'] = $id;
             $arrayPostData['messages'][0]['type'] = "text";
-            $arrayPostData['messages'][0]['text'] = "กรุณาสอนด้วยครับ.";
+            $arrayPostData['messages'][0]['text'] = "กรุณาสอนด้วยครับ ถ้าตกลงกรุณา พิมพ์ y ถ้าไม่ กรุณา พิมพ์ n";
             pushMsg($arrayHeader,$arrayPostData);
+
+            $sqltext1 = "SELECT * FROM Learn ORDER BY `id_learn` DESC LIMIT 1";
+		      $qury1 = mysqli_query($connect,$sqltext1);
+            $result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
+            
+            if($message=="y"){
+               $arrayPostData['to'] = $id;
+               $arrayPostData['messages'][0]['type'] = "text";
+               $arrayPostData['messages'][0]['text'] = "ขอบคุณครับ กรุณาพิมพ์คำ ที่ต้องการสอนได้เลยครับ";
+               pushMsg($arrayHeader,$arrayPostData);
+            }else if($message=="n"){
+               $arrayPostData['to'] = $id;
+               $arrayPostData['messages'][0]['type'] = "text";
+               $arrayPostData['messages'][0]['text'] = "ไม่เป็นไรครับไว้โอกาสหน้านะครับ";
+               pushMsg($arrayHeader,$arrayPostData);
+            }else{
+               $arrayPostData['to'] = $id;
+               $arrayPostData['messages'][0]['type'] = "text";
+               $arrayPostData['messages'][0]['text'] = "ไม่เข้าใจครับ";
+               pushMsg($arrayHeader,$arrayPostData);
+            }
          }
       }
      
