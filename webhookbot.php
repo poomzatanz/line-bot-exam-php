@@ -56,7 +56,7 @@
             $sqltext1 = "SELECT * FROM Learn ORDER BY `id_learn` DESC LIMIT 1";
 		      $qury1 = mysqli_query($connect,$sqltext1);
             $result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
-            if($message){
+            if($message=="Y"){
                $sqltext1 = "SELECT * FROM Learn ORDER BY `id_learn` DESC LIMIT 1";
                $qury1 = mysqli_query($connect,$sqltext1);
                $result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
