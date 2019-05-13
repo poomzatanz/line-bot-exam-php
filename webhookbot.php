@@ -66,6 +66,10 @@
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "ขอบคุณครับ กรุณาพิมพ์คำ ที่ต้องการสอนได้เลยครับ";
       pushMsg($arrayHeader,$arrayPostData);
+             $sqltext1 = "SELECT * FROM Learn ORDER BY `id_learn` DESC LIMIT 1";
+		      $qury1 = mysqli_query($connect,$sqltext1);
+            $result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
+            $sqltext2= "UPDATE `Learn` SET `out` = 'gg' WHERE `Learn`.`id_learn` =".$result['id_learn'];
    }else if($message=="n"){
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
