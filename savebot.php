@@ -27,7 +27,7 @@ if($connect)
         $sqltext1 = "SELECT * FROM `idLine` ORDER BY `id` DESC LIMIT 1";
 		$qury1 = mysqli_query($connect,$sqltext1);
         $result1=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
-        echo $sqltext1;
+
         $arrHeader = array();
         $arrHeader[] = "Content-Type: application/json";
         $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
@@ -52,6 +52,7 @@ if($connect)
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $result = curl_exec($ch);
         curl_close ($ch);
+        
         echo "<h1>ขอบคุณสำหรับการสอนนะครับ...</h1>";
         exit;
 	}
