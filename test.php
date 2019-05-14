@@ -29,10 +29,10 @@ $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
  
 $arrPostData = array();
-$arrPostData['to'] = $result['iduserLine'];
+$arrPostData['to'] = $result['idLine'];
 $arrPostData['messages'][0]['type'] = "text";
-$arrPostData['messages'][0]['text'] = "คุณได้สมัครสมาชิกแล้ว	ชื่อของคุณคือ 	".$n." นามสกุล ".$l."	อีเมลล์คือ	".$m."	ที่อยู่	".$a."	เบอร์โทรที่ติดต่อได้	".$t;
-$sqltext = "INSERT INTO `reg` (`pk_re`, `name`, `lastname`, `add`, `email`, `password`, `tel`) VALUES (NULL, '$n', '$l', '$a', '$m', '$pass', '$t');";
+$arrPostData['messages'][0]['text'] = "คุณได้สมัครสมาชิกแล้ว	ชื่อของคุณคือ 	".$n." อีเมลล์คือ	".$m."	ที่อยู่	".$a."	เบอร์โทรที่ติดต่อได้	".$t;
+$sqltext = "INSERT INTO `reg` (`pk_r`, `name`, `add`, `email`, `password`, `tel`, `line`) VALUES (NULL, '$n', '$a', '$m', '$pass', '$t','".$result['id']."')";
   echo $sqltext;
 	$qury = mysqli_query($connect,$sqltext);
 	if($qury){

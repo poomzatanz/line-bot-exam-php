@@ -16,10 +16,6 @@ action="test.php">
 <td width = "200">ชื่อ : </td><td width = "400">
 <input type="text" name="name" size="50" maxlength="5"> </td>
 </tr>
-<tr >
-<td width = "200" >นามสกุล :</td><td >
-<input type="text" name="last" size="50" maxlength="50"> </td>
-</tr>
 </tr>
 <tr >
 <td width = "200" >Email :</td><td >
