@@ -21,7 +21,7 @@
          $qury = mysqli_query($connect,$sql);
 		   $result=mysqli_fetch_array($qury,MYSQLI_ASSOC);
       
-        $push[0]='สวัสดีครับ  '.$result['name'];
+        $push[0]='สวัสดีครับ  คุณ '.$result['name'];
         $push[1]='User ID ของคุณคือ ';
         $push[2]="$id";
       
