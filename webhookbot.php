@@ -38,7 +38,7 @@
        
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "ขอโทษครับ ผมยังไม่ได้เรียนคำนี้ ......... กรุณาสอนด้วยครับ";
+      $arrayPostData['messages'][0]['text'] = "ขอโทษครับ ผมยังไม่ได้เรียนคำนี้ ......... กรุณาสอนด้วยครับ ที่ https://regis.herokuapp.com/reg.php ได้เลยครับ";
       pushMsg($arrayHeader,$arrayPostData);
       $host="db4free.net";
       $user="poomzatan123456";
