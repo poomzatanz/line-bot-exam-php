@@ -1,2 +1,6 @@
 <?php
-echo "Hello world";
+echo"            <script>
+window.location='reg.php';
+</script>
+";
+?>
