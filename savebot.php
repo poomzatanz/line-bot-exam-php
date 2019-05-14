@@ -35,7 +35,7 @@ if($connect)
         $arrPostData['to'] = $result1['idLine'];
         $arrPostData['messages'][0]['type'] = "text";
         $arrPostData['messages'][0]['text'] = "ขอบคุณสำหรับการสอนนะครับ";
-
+        pushMsg($arrHeader,$arrPostData);
         echo "<h1>ขอบคุณสำหรับการสอนนะครับ...</h1>";
         exit;
 	}
@@ -46,7 +46,7 @@ if($connect)
     	
 
 }
-function pushMsg($arrayHeader,$arrayPostData){
+function pushMsg($arrHeader,$arrPostData){
     $strUrl = "https://api.line.me/v2/bot/message/push";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL,$strUrl);
