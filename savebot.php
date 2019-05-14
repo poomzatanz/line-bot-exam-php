@@ -12,7 +12,7 @@ if($connect)
     $sqltext1 = "SELECT * FROM `Learn` WHERE input = '".$n."'";
 		$qury1 = mysqli_query($connect,$sqltext1);
         $result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
-        echo $sqltext1;
+  
     if(!$result){
         $sqltext = "INSERT INTO `Learn` (`id_learn`, `input`, `out`) VALUES (NULL, '$n', '$l');";
     $qury = mysqli_query($connect,$sqltext);

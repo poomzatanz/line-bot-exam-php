@@ -14,6 +14,10 @@
    $password="0811582889zX";
    $connect=mysqli_connect($host,$user,$password,"testdb1234567");
    mysqli_set_charset($connect,"UTF8");
+   
+   $sqltext1 = "SELECT * FROM `Learn` WHERE input = '".$message."'";
+   $qury1 = mysqli_query($connect,$sqltext1);
+     $result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
    if($connect)
    {
       if($message == "name"){
@@ -41,6 +45,11 @@
           }
           
          }
+       }elseif ($result) {
+         $arrayPostData['to'] = $id;
+         $arrayPostData['messages'][0]['type'] = "text";
+         $arrayPostData['messages'][0]['text'] = $result['out'];
+         pushMsg($arrayHeader,$arrayPostData);
        }else{
           
          $arrayPostData['to'] = $id;
