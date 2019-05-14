@@ -9,106 +9,49 @@
    $message = $arrayJson['events'][0]['message']['text'];
    //รับ id ของผู้ใช้
    $id = $arrayJson['events'][0]['source']['userId'];
-   if($message == "name"){
+   $host="db4free.net";
+   $user="poomzatan123456";
+   $password="0811582889zX";
+   $connect=mysqli_connect($host,$user,$password,"testdb1234567");
+   mysqli_set_charset($connect,"UTF8");
+   if($connect)
+   {
+      if($message == "name"){
       
-      $host="db4free.net";
-      $user="poomzatan123456";
-      $password="0811582889zX";
-      $connect=mysqli_connect($host,$user,$password,"testdb1234567");
-      mysqli_set_charset($connect,"UTF8");
-      if($connect)
-      {
-         $sql="SELECT * FROM `Line` INNER join regis on Line.pk_re = regis.pk_re WHERE `iduserLine`='".$id."'";
-         $qury = mysqli_query($connect,$sql);
-		   $result=mysqli_fetch_array($qury,MYSQLI_ASSOC);
-      
-        $push[0]='สวัสดีครับ  คุณ '.$result['name'];
-        $push[1]='User ID ของคุณคือ ';
-        $push[2]="$id";
-      
-       for($i=0;$i<=2;$i++){
-          $arrayPostData['to'] = $id;
-          $arrayPostData['messages'][0]['type'] = "text";
-          $arrayPostData['messages'][0]['text'] = $push[$i];
-          pushMsg($arrayHeader,$arrayPostData);
-       }
-       
-      }
-    }else if($message!="y"&&$message!="n"){
-       
-      $arrayPostData['to'] = $id;
-      $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "ขอโทษครับ ผมยังไม่ได้เรียนคำนี้ ......... กรุณาสอนด้วยครับ ที่ https://regis.herokuapp.com/reg.php ได้เลยครับ";
-      pushMsg($arrayHeader,$arrayPostData);
-      $host="db4free.net";
-      $user="poomzatan123456";
-      $password="0811582889zX";
-      $connect=mysqli_connect($host,$user,$password,"testdb1234567");
-      mysqli_set_charset($connect,"UTF8");
-      if($connect)
-      {
-         $sql="INSERT INTO `Learn` (`id_learn`, `input`, `out`) VALUES (NULL, '$message', '');";
-         $qury = mysqli_query($connect,$sql);
-         if($qury){
-            $arrayPostData['to'] = $id;
-            $arrayPostData['messages'][0]['type'] = "text";
-            $arrayPostData['messages'][0]['text'] = "ถ้าต้องการสอนกรุณาพิมพ์ ต่อได้เลย ครับ ถ้าไม่ กด n เลยครับ";
-            pushMsg($arrayHeader,$arrayPostData);
-
-            $sqltext1 = "SELECT * FROM Learn ORDER BY `id_learn` DESC LIMIT 1";
-		      $qury1 = mysqli_query($connect,$sqltext1);
-            $result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
-            if($message=="Y"){
-               $sqltext1 = "SELECT * FROM Learn ORDER BY `id_learn` DESC LIMIT 1";
-               $qury1 = mysqli_query($connect,$sqltext1);
-               $result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
-   
-               $sqltext2= "UPDATE `Learn` SET `out` = '$message' WHERE `Learn`.`id_learn` =".$result['id_learn'];
-               $qury3 = mysqli_query($connect,$sqltext2);
-               if($qury3){
-                  $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-                  $arrayPostData['messages'][0]['type'] = "text";
-                  $arrayPostData['messages'][0]['text'] = "ขอบคุณเป็นอย่างสูง";
-               }   
-            }
-            
-         }
-      }
-     
-   }else if($message=="y"){
-      $arrayPostData['to'] = $id;
-      $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "ขอบคุณครับ กรุณาพิมพ์คำ ที่ต้องการสอนได้เลยครับ";
-      pushMsg($arrayHeader,$arrayPostData);
-      $host="db4free.net";
-      $user="poomzatan123456";
-      $password="0811582889zX";
-      $connect=mysqli_connect($host,$user,$password,"testdb1234567");
-      mysqli_set_charset($connect,"UTF8");
-      if($connect)
-      {
-         if($message!="y"){
-            $sqltext1 = "SELECT * FROM Learn ORDER BY `id_learn` DESC LIMIT 1";
-            $qury1 = mysqli_query($connect,$sqltext1);
-            $result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
-   
-            $sqltext2= "UPDATE `Learn` SET `out` = '$message' WHERE `Learn`.`id_learn` =".$result['id_learn'];
-            $qury3 = mysqli_query($connect,$sqltext2);
-            if($qury3){
-               $arrayPostData['replyToken'] = $arrayJson['events'][0]['replyToken'];
-               $arrayPostData['messages'][0]['type'] = "text";
-               $arrayPostData['messages'][0]['text'] = "ขอบคุณเป็นอย่างสูง";
-            }
-         }
+         $host="db4free.net";
+         $user="poomzatan123456";
+         $password="0811582889zX";
+         $connect=mysqli_connect($host,$user,$password,"testdb1234567");
+         mysqli_set_charset($connect,"UTF8");
+         if($connect)
+         {
+            $sql="SELECT * FROM `Line` INNER join regis on Line.pk_re = regis.pk_re WHERE `iduserLine`='".$id."'";
+            $qury = mysqli_query($connect,$sql);
+            $result=mysqli_fetch_array($qury,MYSQLI_ASSOC);
          
-      }
-
-   }else if($message=="n"){
-      $arrayPostData['to'] = $id;
-      $arrayPostData['messages'][0]['type'] = "text";
-      $arrayPostData['messages'][0]['text'] = "ไม่เป็นไรครับไว้โอกาสหน้านะครับ";
-      pushMsg($arrayHeader,$arrayPostData);
-   }    
+           $push[0]='สวัสดีครับ  คุณ '.$result['name'];
+           $push[1]='User ID ของคุณคือ ';
+           $push[2]="$id";
+         
+          for($i=0;$i<=2;$i++){
+             $arrayPostData['to'] = $id;
+             $arrayPostData['messages'][0]['type'] = "text";
+             $arrayPostData['messages'][0]['text'] = $push[$i];
+             pushMsg($arrayHeader,$arrayPostData);
+          }
+          
+         }
+       }else{
+          
+         $arrayPostData['to'] = $id;
+         $arrayPostData['messages'][0]['type'] = "text";
+         $arrayPostData['messages'][0]['text'] = "ขอโทษครับ ผมยังไม่ได้เรียนคำนี้ ......... กรุณาสอนด้วยครับ ที่ https://regis.herokuapp.com/reg.php ได้เลยครับ";
+         pushMsg($arrayHeader,$arrayPostData);
+        
+         }
+   }
+   
+     
    function pushMsg($arrayHeader,$arrayPostData){
       $strUrl = "https://api.line.me/v2/bot/message/push";
       $ch = curl_init();
