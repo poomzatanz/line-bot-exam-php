@@ -7,14 +7,20 @@
    $arrayHeader[] = "Authorization: Bearer {$accessToken}";
    //รับข้อความจากผู้ใช้
    $message = $arrayJson['events'][0]['message']['text'];
-   //รับ id ของผู้ใช้
+   
    $id = $arrayJson['events'][0]['source']['userId'];
    $host="db4free.net";
    $user="poomzatan123456";
    $password="0811582889zX";
    $connect=mysqli_connect($host,$user,$password,"testdb1234567");
    mysqli_set_charset($connect,"UTF8");
-   
+
+   $sql1 = "INSERT INTO `idLine` (`id`, `idLine`) VALUES (NULL, '$id')";
+   $qury = mysqli_query($connect,$sql1);
+   if($qury){
+      
+   }
+
    $sqltext1 = "SELECT * FROM `Learn` WHERE input = '".$message."'";
    $qury1 = mysqli_query($connect,$sqltext1);
      $result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
