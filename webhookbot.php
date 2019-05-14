@@ -27,7 +27,7 @@
 
      $sqltext2 = "SELECT * FROM `idLine` WHERE idLine = '".$id."'";
      $qury2 = mysqli_query($connect,$sqltext2);
-     $result2=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
+     $result2=mysqli_fetch_array($qury2,MYSQLI_ASSOC);
 
    if($connect)
    {
@@ -64,7 +64,7 @@
        }elseif (!$result2) {
          $arrayPostData['to'] = $id;
          $arrayPostData['messages'][0]['type'] = "text";
-         $arrayPostData['messages'][0]['text'] = "คุณยังไม่ได้สมัครสมาชิกกรุณาสมัครสมาชิก ด้วยครับ";
+         $arrayPostData['messages'][0]['text'] = "คุณยังไม่ได้สมัครสมาชิกกรุณาสมัครสมาชิก ด้วยครับ ที่ https://regis.herokuapp.com/reg.php ได้เลยครับ ";
          pushMsg($arrayHeader,$arrayPostData);
        }
        else{
