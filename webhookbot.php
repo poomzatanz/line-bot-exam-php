@@ -18,12 +18,17 @@
    $sql1 = "INSERT INTO `idLine` (`id`, `idLine`) VALUES (NULL, '$id')";
    $qury = mysqli_query($connect,$sql1);
    if($qury){
-      
+
    }
 
    $sqltext1 = "SELECT * FROM `Learn` WHERE input = '".$message."'";
    $qury1 = mysqli_query($connect,$sqltext1);
      $result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
+
+     $sqltext2 = "SELECT * FROM `idLine` WHERE idLine = '".$id."'";
+     $qury2 = mysqli_query($connect,$sqltext2);
+     $result2=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
+
    if($connect)
    {
       if($message == "name"){
@@ -56,7 +61,13 @@
          $arrayPostData['messages'][0]['type'] = "text";
          $arrayPostData['messages'][0]['text'] = $result['out'];
          pushMsg($arrayHeader,$arrayPostData);
-       }else{
+       }elseif (!$result2) {
+         $arrayPostData['to'] = $id;
+         $arrayPostData['messages'][0]['type'] = "text";
+         $arrayPostData['messages'][0]['text'] = "คุณยังไม่ได้สมัครสมาชิกกรุณาสมัครสมาชิก ด้วยครับ";
+         pushMsg($arrayHeader,$arrayPostData);
+       }
+       else{
           
          $arrayPostData['to'] = $id;
          $arrayPostData['messages'][0]['type'] = "text";

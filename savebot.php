@@ -32,10 +32,6 @@ if($connect)
         $arrHeader[] = "Content-Type: application/json";
         $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
         
-        $arrPostData = array();
-        $arrPostData['to'] = $result['iduserLine'];
-        $arrPostData['messages'][0]['type'] = "text";
-        $arrPostData['messages'][0]['text'] = "ขอบคุณที่สอนครับ";
 
         $arrPostData = array();
         $arrPostData['to'] = $result1['idLine'];
@@ -52,12 +48,37 @@ if($connect)
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $result = curl_exec($ch);
         curl_close ($ch);
-        
+
         echo "<h1>ขอบคุณสำหรับการสอนนะครับ...</h1>";
         exit;
 	}
     }else {
-        echo "<h1>มีข้อมูลแล้วครับ.......</h1>";
+        $sqltext1 = "SELECT * FROM `idLine` ORDER BY `id` DESC LIMIT 1";
+		$qury1 = mysqli_query($connect,$sqltext1);
+        $result1=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
+
+        $arrHeader = array();
+        $arrHeader[] = "Content-Type: application/json";
+        $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
+        
+
+        $arrPostData = array();
+        $arrPostData['to'] = $result1['idLine'];
+        $arrPostData['messages'][0]['type'] = "text";
+        $arrPostData['messages'][0]['text'] = "ขอโทษครับมีข้อมูลแล้วครับ";
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$strUrl);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result = curl_exec($ch);
+        curl_close ($ch);
+        
+        echo "<h1>ขอบคุณสำหรับการสอนนะครับ...</h1>";
         exit;
     }
     	
