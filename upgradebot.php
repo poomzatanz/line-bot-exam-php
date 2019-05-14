@@ -14,7 +14,7 @@ action="savebot.php">
 </tr>
 <tr>
 <td width = "200">กรุณากรอกคำที่ท่านใส่ลง : </td><td width = "400">
-<input type="text" name="name" size="50" maxlength="5"> </td>
+<input type="text" name="name" size="50" maxlength="50"> </td>
 </tr>
 <tr >
 <td width = "200" >กรุณาใส่คำที่บอทต้องการตอบโต้ :</td><td >
