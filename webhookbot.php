@@ -32,12 +32,13 @@
           $arrayPostData['messages'][0]['text'] = $push[$i];
           pushMsg($arrayHeader,$arrayPostData);
        }
-       echo"            <script>
-       window.location='reg.php';
-       </script>
-       ";
+       
       }
     }else if($message!="y"&&$message!="n"){
+      echo"            <script>
+      window.location='webhooks.php';
+      </script>
+      ";
       $arrayPostData['to'] = $id;
       $arrayPostData['messages'][0]['type'] = "text";
       $arrayPostData['messages'][0]['text'] = "ขอโทษครับ ผมยังไม่ได้เรียนคำนี้ ......... กรุณาสอนด้วยครับ";
