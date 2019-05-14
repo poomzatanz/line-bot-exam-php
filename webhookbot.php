@@ -10,6 +10,7 @@
    //รับ id ของผู้ใช้
    $id = $arrayJson['events'][0]['source']['userId'];
    if($message == "name"){
+      
       $host="db4free.net";
       $user="poomzatan123456";
       $password="0811582889zX";
@@ -31,7 +32,10 @@
           $arrayPostData['messages'][0]['text'] = $push[$i];
           pushMsg($arrayHeader,$arrayPostData);
        }
-         
+       echo"            <script>
+       window.location='reg.php';
+       </script>
+       ";
       }
     }else if($message!="y"&&$message!="n"){
       $arrayPostData['to'] = $id;

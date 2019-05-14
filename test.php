@@ -1,9 +1,7 @@
 <?php
-<<<<<<< HEAD
 echo "hello";
 echo "s";
-?>
-=======
+
 
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
@@ -62,4 +60,4 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 $result = curl_exec($ch);
 curl_close ($ch);
->>>>>>> origin/master
+?>
