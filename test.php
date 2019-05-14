@@ -19,7 +19,7 @@ if($connect)
 	$a=$_POST['add'];
 	$t=$_POST['tel'];
 	$pass = md5($p);
-        $sqltext1 = "SELECT * FROM idLine ORDER BY `idLine` DESC LIMIT 1";
+        $sqltext1 = "SELECT * FROM idLine ORDER BY `id` DESC LIMIT 1";
 		$qury1 = mysqli_query($connect,$sqltext1);
 		$result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
 		
