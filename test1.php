@@ -2,7 +2,7 @@
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 $access_token = 'n3Ip66xMPuO1xND8801hh9NZhuyHgsSuFvCETfyga18qvVuO095cmHbr9mV+M4kejFHkGb88rpwscKSr0co8BpWr8zN09hfRNUvhH6Mp/NOp6dMl/ULggahkDbLHk2nq/CtV0+85qZGZinIv50f6sQdB04t89/1O/w1cDnyilFU=';
-$strAccessToken = "tHt+CQPdeYyYz282O0XGxAmy6nmuKJL/+PoSXah9v6cPeM+LFGJgR7ZIlMtLolfIoo1Zckc2sfsXkwgnxn92+0ZkaCCHq/KHD7QANBAogMPIBOvPmgU1KLvON1Neabb2rEo5t/MVE6RbJkCVidEcWgdB04t89/1O/w1cDnyilFU=";
+$strAccessToken = "JMp2wdEJ8OAvnqoJjlnyQvxnUz03sesdqQbnv683lHCUgzoUJ4FNnx1S1HhZ2qIpoo1Zckc2sfsXkwgnxn92+0ZkaCCHq/KHD7QANBAogMPCyhSGdxfIgp6dfxdA3GiNTs2rJkV/dQAr9dVi1pXIggdB04t89/1O/w1cDnyilFU=";
 $strUrl = "https://api.line.me/v2/bot/message/push";
 $host="db4free.net";
 $user="poomzatan123456";

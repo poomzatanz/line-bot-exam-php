@@ -1,7 +1,7 @@
 <?php
 require "vendor/autoload.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
-$strAccessToken = "tHt+CQPdeYyYz282O0XGxAmy6nmuKJL/+PoSXah9v6cPeM+LFGJgR7ZIlMtLolfIoo1Zckc2sfsXkwgnxn92+0ZkaCCHq/KHD7QANBAogMPIBOvPmgU1KLvON1Neabb2rEo5t/MVE6RbJkCVidEcWgdB04t89/1O/w1cDnyilFU=";
+$strAccessToken = "JMp2wdEJ8OAvnqoJjlnyQvxnUz03sesdqQbnv683lHCUgzoUJ4FNnx1S1HhZ2qIpoo1Zckc2sfsXkwgnxn92+0ZkaCCHq/KHD7QANBAogMPCyhSGdxfIgp6dfxdA3GiNTs2rJkV/dQAr9dVi1pXIggdB04t89/1O/w1cDnyilFU=";
  
 $strUrl = "https://api.line.me/v2/bot/message/push";
 
