@@ -25,7 +25,7 @@
    $qury1 = mysqli_query($connect,$sqltext1);
      $result=mysqli_fetch_array($qury1,MYSQLI_ASSOC);
 
-     $sqltext2 = "SELECT * FROM reg INNER JOIN idLine ON reg.line=idLine.id WHERE idLine = '".$id."'";
+     $sqltext2 = "SELECT * FROM `name` INNER JOIN idLine ON name.id = idLine.id WHERE idLine = '".$id."'";
      $qury2 = mysqli_query($connect,$sqltext2);
      $result2=mysqli_fetch_array($qury2,MYSQLI_ASSOC);
 
