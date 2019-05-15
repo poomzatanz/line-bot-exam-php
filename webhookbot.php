@@ -15,7 +15,7 @@
    $connect=mysqli_connect($host,$user,$password,"testdb1234567");
    mysqli_set_charset($connect,"UTF8");
 
-   $sql1 = "INSERT INTO `idLine` (`id`, `idLine`) VALUES (NULL, '$message')";
+   $sql1 = "INSERT INTO `idLine` (`id`, `idLine`) VALUES (NULL, '$id')";
    $qury = mysqli_query($connect,$sql1);
    if($qury){
 
