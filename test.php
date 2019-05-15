@@ -17,7 +17,7 @@ $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
  
 $arrPostData = array();
-$arrPostData['to'] = 'U00d3f92880e602629d119bfd651f4a3f';
+$arrPostData['to'] = 'Ud2819f17e22f81ecf635ac2f041cd64d';
 $arrPostData['messages'][0]['type'] = "text";
 $arrPostData['messages'][0]['text'] = "ทดสอบ ทดสอบ เทส เทส";
 
