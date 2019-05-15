@@ -1,5 +1,6 @@
 <?php
-   $accessToken = "OALab4hcEmyMXc0b9fOGkkERR7YKbVjWkYv5Mu7wP7tbF3L25LNIyyb0vfdPn0j9jFHkGb88rpwscKSr0co8BpWr8zN09hfRNUvhH6Mp/NNzzP8663QhiXYcDW0wFiRJ/PeLIFdFZ1WURzGekhTewQdB04t89/1O/w1cDnyilFU=";
+   $accessToken = "Y/0ulpDdKXR/wndm4gJW/uUPu9FK44+dBvowarNnWgJaUIyveDrEuNQ+HK9yJFgJoo1Zckc2sfsXkwgnxn92+0ZkaCCHq/KHD7QANBAogMMMKtmuHEFHpFPTBXET7BqxUMQVPYML17ioq52P/e5XWAdB04t89/1O/w1cDnyilFU=";
+   $content = file_get_contents('php://input');
    $arrayJson = json_decode($content, true);
    $arrayHeader = array();
    $arrayHeader[] = "Content-Type: application/json";
@@ -63,7 +64,7 @@
        }elseif (!$result2) {
          $arrayPostData['to'] = $id;
          $arrayPostData['messages'][0]['type'] = "text";
-         $arrayPostData['messages'][0]['text'] = "ผมยังไม่รู้จักคุณ กรุณาใส่ชื่อ ด้วยครับ ที่ https://regis.herokuapp.com/username.php ได้เลยครับ ";
+         $arrayPostData['messages'][0]['text'] = "ผมยังไม่รู้จักคุณกรุณาใส่ชื่อ ด้วยครับ ที่ https://regis.herokuapp.com/username.php ได้เลยครับ ";
          pushMsg($arrayHeader,$arrayPostData);
        }
        else{
