@@ -64,14 +64,14 @@
        }elseif (!$result2) {
          $arrayPostData['to'] = $id;
          $arrayPostData['messages'][0]['type'] = "text";
-         $arrayPostData['messages'][0]['text'] = "คุณยังไม่ได้สมัครสมาชิกกรุณาสมัครสมาชิก ด้วยครับ ที่ https://regis.herokuapp.com/reg.php ได้เลยครับ ";
+         $arrayPostData['messages'][0]['text'] = "คุณยังไม่ได้สมัครสมาชิกกรุณาสมัครสมาชิก ด้วยครับ ที่ https://regis.herokuapp.com/username.php ได้เลยครับ ";
          pushMsg($arrayHeader,$arrayPostData);
        }
        else{
           
          $arrayPostData['to'] = $id;
          $arrayPostData['messages'][0]['type'] = "text";
-         $arrayPostData['messages'][0]['text'] = "ขอโทษครับ คุณ ".$result2['name']." ผมยังไม่ได้เรียนคำนี้ ......... กรุณาสอนด้วยครับ ที่ https://regis.herokuapp.com/upgradebot.php ได้เลยครับ";
+         $arrayPostData['messages'][0]['text'] = "ขอโทษครับ คุณ ".$result2['name']." ผมยังไม่ได้เรียนคำนี้ ......... กรุณาสอนด้วยครับ ที่ https://regis.herokuapp.com/upgradebot.php ได้เลยครับ".$sqltext2 ;
          pushMsg($arrayHeader,$arrayPostData);
         
          }
