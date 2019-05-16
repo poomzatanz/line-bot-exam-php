@@ -71,9 +71,10 @@ action="test.php">
 </div>
 
 
+
+</div>
 <input type="submit" name="Submit" value="บันทึกข้อมูล" style="cursor:hand">
 <input type="reset" name="Reset" value="ยกเลิก" style="cursor:hand">
-</div>
 </body>
 
 </html>
