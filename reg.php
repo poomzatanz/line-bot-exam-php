@@ -34,9 +34,12 @@ action="test.php">
 <td width = "200" >เบอร์โทร :</td><td >
 <input type="text" name="tel" size="50" maxlength="50"> </td>
 </tr>
+<tr>
+<td><input type="submit" name="Submit" value="บันทึกข้อมูล" style="cursor:hand"></td>
+<td><input type="reset" name="Reset" value="ยกเลิก" style="cursor:hand"></td>
+</tr>
 </table>
-<input type="submit" name="Submit" value="บันทึกข้อมูล" style="cursor:hand">
-<input type="reset" name="Reset" value="ยกเลิก" style="cursor:hand">
+
 
 <script>
   window.fbAsyncInit = function() {
