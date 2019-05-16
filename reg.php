@@ -35,7 +35,7 @@ action="test.php">
 <input type="text" name="tel" size="50" maxlength="50"> </td>
 </tr>
 </table>
-<div>
+<div align = "center">
 <input type="submit" name="Submit" value="บันทึกข้อมูล" style="cursor:hand">
 <input type="reset" name="Reset" value="ยกเลิก" style="cursor:hand">
 </div>
