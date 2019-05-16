@@ -35,8 +35,8 @@ action="test.php">
 <input type="text" name="tel" size="50" maxlength="50"> </td>
 </tr>
 </table>
-<input type="submit" name="Submit" value="บันทึกข้อมูล" style="cursor:hand">
-<input type="reset" name="Reset" value="ยกเลิก" style="cursor:hand">
+
+
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -71,9 +71,6 @@ action="test.php">
   page_id="2309274729393547"
   theme_color="#0084ff">
 </div>
-
-
-
 </div>
 
 </body>
