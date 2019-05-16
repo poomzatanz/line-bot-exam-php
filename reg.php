@@ -36,10 +36,45 @@ action="test.php">
 </tr>
 </table>
 <BR>
+<! — Load Facebook SDK for JavaScript →
+ <script>
+ window.fbAsyncInit = function() {
+ FB.init({
+ appId : ‘1058925147635089,
+ autoLogAppEvents : true,
+ xfbml : true,
+ version : ‘v3.0’
+ });
+ };
+
+(function(d, s, id){
+ var js, fjs = d.getElementsByTagName(s)[0];
+ if (d.getElementById(id)) {return;}
+ js = d.createElement(s); js.id = id;
+ js.src = “https://connect.facebook.net/en_US/sdk.js”;
+ fjs.parentNode.insertBefore(js, fjs);
+ }(document, ‘script’, ‘facebook-jssdk’));
+</script>
+
+<div id=”fb-root”></div>
+<script>(function(d, s, id) {
+ var js, fjs = d.getElementsByTagName(s)[0];
+ if (d.getElementById(id)) return;
+ js = d.createElement(s); js.id = id;
+ js.src = ‘https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+ fjs.parentNode.insertBefore(js, fjs);
+}(document, ‘script’, ‘facebook-jssdk’));</script>
+
+<! — Your customer chat code →
+<div class=”fb-customerchat”
+ attribution=”setup_tool”
+ page_id=”2309274729393547"
+ theme_color=”#0084ff”>
+</div>
 <div align = "center">
 <input type="submit" name="Submit" value="บันทึกข้อมูล" style="cursor:hand">
 <input type="reset" name="Reset" value="ยกเลิก" style="cursor:hand">
 </div>
 </body>
-</html>
 
+</html>
