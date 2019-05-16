@@ -35,7 +35,7 @@ action="test.php">
 <input type="text" name="tel" size="50" maxlength="50"> </td>
 </tr>
 </table>
-<div align = "center">
+<div >
 <input type="submit" name="Submit" value="บันทึกข้อมูล" style="cursor:hand">
 <input type="reset" name="Reset" value="ยกเลิก" style="cursor:hand">
 </div>
@@ -44,7 +44,7 @@ action="test.php">
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId            : '1058925147635089,
+      appId            : '436824017108132,
       autoLogAppEvents : true,
       xfbml            : true,
       version          : 'v3.0'
@@ -72,7 +72,7 @@ action="test.php">
 <!-- Your customer chat code -->
 <div class="fb-customerchat"
   attribution="setup_tool"
-  page_id="2309274729393547"
+  page_id="339760780073238"
   theme_color="#0084ff">
 </div>
 </div>
