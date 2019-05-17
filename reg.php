@@ -43,7 +43,7 @@ action="test.php">
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId            : '436824017108132,
+      appId            : '330121794352379,
       autoLogAppEvents : true,
       xfbml            : true,
       version          : 'v3.0'
