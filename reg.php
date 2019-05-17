@@ -40,7 +40,7 @@ action="test.php">
 </div>
 
 
-<script>
+<!--<script>
   window.fbAsyncInit = function() {
     FB.init({
       appId            : '330121794352379,
@@ -69,12 +69,12 @@ action="test.php">
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- Your customer chat code -->
-<div class="fb-customerchat"
+<!--<div class="fb-customerchat"
   attribution="setup_tool"
   page_id="339760780073238"
   theme_color="#0084ff">
 </div>
-</div>
+</div>-->
 
 </body>
 
