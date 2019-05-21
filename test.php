@@ -1,39 +1,84 @@
 <?php
-require "vendor/autoload.php";
-require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
-$access_token = 'n3Ip66xMPuO1xND8801hh9NZhuyHgsSuFvCETfyga18qvVuO095cmHbr9mV+M4kejFHkGb88rpwscKSr0co8BpWr8zN09hfRNUvhH6Mp/NOp6dMl/ULggahkDbLHk2nq/CtV0+85qZGZinIv50f6sQdB04t89/1O/w1cDnyilFU=';
-$strAccessToken = "JMp2wdEJ8OAvnqoJjlnyQvxnUz03sesdqQbnv683lHCUgzoUJ4FNnx1S1HhZ2qIpoo1Zckc2sfsXkwgnxn92+0ZkaCCHq/KHD7QANBAogMPCyhSGdxfIgp6dfxdA3GiNTs2rJkV/dQAr9dVi1pXIggdB04t89/1O/w1cDnyilFU=";
- 
-$strUrl = "https://api.line.me/v2/bot/message/push";
-$host="db4free.net";
-$user="poomzatan123456";
-$password="0811582889zX";
-$connect=mysqli_connect($host,$user,$password,"testdb1234567");
-mysqli_set_charset($connect,"UTF8");
-if($connect)
-{
-$arrHeader = array();
-$arrHeader[] = "Content-Type: application/json";
-$arrHeader[] = "Authorization: Bearer {$strAccessToken}";
- 
-$arrPostData = array();
-$arrPostData['to'] = 'U00d3f92880e602629d119bfd651f4a3f';
-$arrPostData['messages'][0]['type'] = "text";
-$arrPostData['messages'][0]['text'] = "ตอนนี้เราดัดแปลงให้กรอกแค่ชื่ออย่างเดียวแล้ว กรุณาลองทดสอบด้วย";
-
+$access_token = "<ACCESS TOKEN>";
+$verify_token = "yellow_duck";
+$hub_verify_token = null;
+if(isset($_REQUEST['hub_challenge'])) {
+ $challenge = $_REQUEST['hub_challenge'];
+ $hub_verify_token = $_REQUEST['hub_verify_token'];
 }
-else{
+if ($hub_verify_token === $verify_token) {
+ echo $challenge;
 }
+$input = json_decode(file_get_contents('php://input'), true);
+$sender = $input['entry'][0]['messaging'][0]['sender']['id'];
+$message = $input['entry'][0]['messaging'][0]['message']['text'];
+$message_to_reply = '';
+/**
+ * Some Basic rules to validate incoming messages
+ */
  
- 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL,$strUrl);
-curl_setopt($ch, CURLOPT_HEADER, false);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $arrHeader);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($arrPostData));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-$result = curl_exec($ch);
-curl_close ($ch);
+$api_key="<mLAP API KEY>";
+$url = 'https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey='.$api_key.'';
+$json = file_get_contents('https://api.mlab.com/api/1/databases/duckduck/collections/linebot?apiKey='.$api_key.'&q={"question":"'.$message.'"}');
+$data = json_decode($json);
+$isData=sizeof($data);
+if (strpos($message, 'สอนเป็ด') !== false) {
+  if (strpos($message, 'สอนเป็ด') !== false) {
+    $x_tra = str_replace("สอนเป็ด","", $message);
+    $pieces = explode("|", $x_tra);
+    $_question=str_replace("[","",$pieces[0]);
+    $_answer=str_replace("]","",$pieces[1]);
+    //Post New Data
+    $newData = json_encode(
+      array(
+        'question' => $_question,
+        'answer'=> $_answer
+      )
+    );
+    $opts = array(
+      'http' => array(
+          'method' => "POST",
+          'header' => "Content-type: application/json",
+          'content' => $newData
+       )
+    );
+    $context = stream_context_create($opts);
+    $returnValue = file_get_contents($url,false,$context);
+    $message_to_reply = 'ขอบคุณที่สอนเป็ด';
+  }
+}else{
+  if($isData >0){
+   foreach($data as $rec){
+     $message_to_reply = $rec->answer;
+   }
+  }else{
+    $message_to_reply = 'ก๊าบบ คุณสามารถสอนให้ฉลาดได้เพียงพิมพ์: สอนเป็ด[คำถาม|คำตอบ]';
+  }
+}
+//API Url
+$url = 'https://graph.facebook.com/v2.6/me/messages?access_token='.$access_token;
+//Initiate cURL.
+$ch = curl_init($url);
+//The JSON data.
+$jsonData = '{
+    "recipient":{
+        "id":"'.$sender.'"
+    },
+    "message":{
+        "text":"'.$message_to_reply.'"
+    }
+}';
+//Encode the array into JSON.
+$jsonDataEncoded = $jsonData;
+//Tell cURL that we want to send a POST request.
+curl_setopt($ch, CURLOPT_POST, 1);
+//Attach our encoded JSON string to the POST fields.
+curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDataEncoded);
+//Set the content type to application/json
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+//curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
+//Execute the request
+if(!empty($input['entry'][0]['messaging'][0]['message'])){
+    $result = curl_exec($ch);
+}
 ?>
