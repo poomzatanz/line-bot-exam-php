@@ -31,7 +31,7 @@ $arrPostData['messages'][0]['text'] = "คุณได้สมัครสม�
 $sqltext = "INSERT INTO `name` (`pk_name`, `name`, `id`) VALUES (NULL, '$n','".$result['id']."')";
 	$qury = mysqli_query($connect,$sqltext);
 	if($qury){
-               echo"<h1>ชื่อของคุณได้เก็บเข้าระบบแล้วครับ</h1>";
+               echo"<h1>ชื่อ</h1>";
                echo "<script type='text/javascript'>window.close();</script>";
 	}	
 }
